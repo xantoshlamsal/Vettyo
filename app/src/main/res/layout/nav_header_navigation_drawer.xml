@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@mipmap/navbar_background"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+   android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+
+        android:layout_marginLeft="-20dp"
+        app:srcCompat="@drawable/user_icon"
+        android:tint="@color/light_color1"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="-20dp"
+    android:layout_marginTop="20dp">
+    <TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:text="GUEST USER"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    />
+    <TextView
+        android:id="@+id/nav_log_in_now"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_log_in_now"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/colorSecondary"
+        android:clickable="true"
+        android:focusable="true"
+        />
+</LinearLayout>
+
+
+
+</LinearLayout>
