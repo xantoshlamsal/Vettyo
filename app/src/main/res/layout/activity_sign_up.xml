@@ -4,10 +4,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSecondary"
-
-
-    >
+    android:background="@color/colorPrimary"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -111,7 +109,7 @@
                 android:background="@drawable/btnformate"
                 android:text="Register me"
                 android:layout_margin="10dp"
-                android:textColor="@color/textColor_primary"/>
+                android:textColor="@color/textColor_secondary"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -130,7 +128,7 @@
                 android:background="@drawable/btnformate"
                 android:text="Log In"
                 android:layout_margin="10dp"
-                android:textColor="@color/textColor_primary"/>
+                android:textColor="@color/textColor_secondary"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

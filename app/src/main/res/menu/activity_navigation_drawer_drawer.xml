@@ -10,9 +10,9 @@
             android:icon="@drawable/category_icon"
             android:title="Category" />
         <item
-            android:id="@+id/nav_messaage"
+            android:id="@+id/nav_message"
             android:icon="@drawable/message_icon"
-            android:title="Messaage" />
+            android:title="Message" />
         <item
             android:id="@+id/nav_wishlist"
             android:icon="@drawable/wishlist_icon"

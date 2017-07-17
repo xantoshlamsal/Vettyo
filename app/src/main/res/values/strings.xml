@@ -15,4 +15,22 @@
     <string name="action_settings">Settings</string>
 
     <string name="nav_log_in_now"><u>Log In Now</u></string>
+    <string name="string_hide"> <u>Hide</u></string>
+
+    <string-array name="cities_array">
+        <item>All Over Nepal</item>
+        <item>Kathmandu</item>
+        <item>Pokhara</item>
+        <item>Biratnagar</item>
+        <item>Butuwal</item>
+        <item>Dharan</item>
+        <item>Nepalgunj</item>
+        <item>Tulsipur</item>
+    </string-array>
+
+
+
+
+
+
 </resources>

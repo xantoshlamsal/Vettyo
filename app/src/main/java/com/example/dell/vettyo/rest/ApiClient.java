@@ -1,4 +1,4 @@
-package com.example.dell.retroexample.apiHandlers.rest;
+package com.example.dell.vettyo.rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ads_layout"
+    android:id="@+id/categories_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -23,28 +23,25 @@
             <ImageView
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="100dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/box"/>
+                android:tint="@color/colorPrimaryDark"
+                android:src="@drawable/my_ads_icon"/>
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/category_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
+                android:layout_gravity="center"
                 android:paddingRight="16dp"
                 android:textStyle="bold"
-                android:textSize="16sp" />
+                android:text="Category Name"
+                android:textAlignment="center"/>
 
 
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingRight="16dp"
-                />
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

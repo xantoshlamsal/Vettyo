@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.dell.vettyo.R;
+import com.example.dell.vettyo.navigation_drawer;
 
-public class UserProfileActivity extends AppCompatActivity {
+public class UserProfileActivity extends navigation_drawer {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.dell.vettyo.navigation_drawer"
-    tools:showIn="@layout/app_bar_navigation_drawer"
-    android:orientation="vertical"
-    android:weightSum="1">
-
-   <android.support.v7.widget.RecyclerView
-       android:id="@+id/recycler_view"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:clipToPadding="false"
-       android:scrollbars="vertical" />
+    tools:showIn="@layout/app_bar_navigation_drawer">
 
 
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragment_space"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+</RelativeLayout>

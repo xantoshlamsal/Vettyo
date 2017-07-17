@@ -16,11 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dell.vettyo.R;
-import com.example.dell.vettyo.adapter.AdCardsAdapter;
 import com.example.dell.vettyo.adapter.CategoriesAdapter;
-import com.example.dell.vettyo.model.Ad;
 import com.example.dell.vettyo.model.Category;
-import com.example.dell.vettyo.navigation_drawer;
 import com.example.dell.vettyo.rest.ApiClient;
 import com.example.dell.vettyo.rest.ApiInterface;
 
@@ -33,14 +30,14 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoryFragment extends Fragment {
+public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView=null;
     private RecyclerView.LayoutManager layoutManager;
     private CategoriesAdapter adapter = null;
     private List<Category> categories;
     private ApiInterface apiInterface;
-    private static final String TAG = CategoryFragment.class.getSimpleName();
-    public CategoryFragment() {
+    private static final String TAG = CategoriesFragment.class.getSimpleName();
+    public CategoriesFragment() {
         // Required empty public constructor
     }
 
@@ -58,7 +55,7 @@ public class CategoryFragment extends Fragment {
         DisplayMetrics lDisplayMetrics = getResources().getDisplayMetrics();
         double widthPixels = lDisplayMetrics.widthPixels;
         Log.e("Width", String.valueOf(widthPixels));
-        columns = (int) widthPixels / dpToPx(150);
+        columns = (int) widthPixels / dpToPx(100);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.categories_recycler_view);
         final RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), columns);

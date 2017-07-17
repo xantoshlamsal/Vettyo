@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_compare"
         android:orderInCategory="100"
-        android:icon="@mipmap/compare_icon"
+        android:icon="@mipmap/compare_b"
         app:showAsAction="always"
         android:title="compare_icon"
         />
@@ -12,7 +12,7 @@
     <item
         android:id="@+id/action_search"
         android:orderInCategory="100"
-        android:icon="@mipmap/search_icon"
+        android:icon="@drawable/ic_action_name"
         app:showAsAction="always"
         android:title="search_icon" />
 

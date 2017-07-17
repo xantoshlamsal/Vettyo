@@ -6,9 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#7c7c7c</item>
-
-
-
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
@@ -23,8 +20,12 @@
         <item name="android:background">#fff</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/textColor_primary</item>
+        <item name="android:textColorSecondary">@color/titletextcolor</item>
+        <item name="actionMenuTextColor">@color/titletextcolor</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat"></style>
 
 </resources>

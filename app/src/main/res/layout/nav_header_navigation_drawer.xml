@@ -15,10 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-
+        android:tint="@color/textColor_secondary"
         android:layout_marginLeft="-20dp"
         app:srcCompat="@drawable/user_icon"
-        android:tint="@color/light_color1"/>
+        />
+
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
         android:text="@string/nav_log_in_now"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/colorSecondary"
+        android:textColor="@color/textColor_secondary"
         android:clickable="true"
         android:focusable="true"
         />

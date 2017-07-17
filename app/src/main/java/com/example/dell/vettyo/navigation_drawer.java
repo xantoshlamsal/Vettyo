@@ -1,15 +1,10 @@
 package com.example.dell.vettyo;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,27 +14,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
-import com.example.dell.vettyo.adapter.AdCardAdapter;
-import com.example.dell.vettyo.model.AdCardModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.dell.vettyo.fragments.CategoriesFragment;
+import com.example.dell.vettyo.fragments.HomeFragment;
 
 public class navigation_drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView recyclerView;
-    private AdCardAdapter adCardAdapter;
-    private List<AdCardModel> adCardList;
+    private static final String TAG = navigation_drawer.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Vettyo!!");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,115 +51,57 @@ public class navigation_drawer extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+//loading default fragment
+        if (savedInstanceState == null) {
 
-        adCardList = new ArrayList<>();
-        adCardAdapter = new AdCardAdapter(this, adCardList);
-
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adCardAdapter);
-        prepareAlbums();
-
-
-    }
-    private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.album1,
-                R.drawable.album2,
-                R.drawable.album3,
-                R.drawable.album4,
-                R.drawable.album5,
-                R.drawable.album6,
-                R.drawable.album7,
-                R.drawable.album8,
-                R.drawable.album9,
-                R.drawable.album10,
-                R.drawable.album11};
-
-        AdCardModel a = new AdCardModel("True Romance", 13, covers[0]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Xscpae", 8, covers[1]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Maroon 5", 11, covers[2]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Maroon 5", 11, covers[3]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Maroon 5", 11, covers[4]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Maroon 5", 11, covers[5]);
-        adCardList.add(a);
-
-        a = new AdCardModel("Maroon 5", 11, covers[6]);
-        adCardList.add(a);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.pop_enter, R.animator.pop_exit);
+            HomeFragment homeFragment= new HomeFragment();
+            transaction.replace(R.id.fragment_space, homeFragment );
+            transaction.addToBackStack(null);
+            transaction.commit();
 
 
-        adCardAdapter.notifyDataSetChanged();
-    }
 
-    /**
-     * RecyclerView item decoration - give equal margin around grid item
-     */
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
 
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
         }
 
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); // item position
-            int column = position % spanCount; // item column
 
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
 
-                if (position < spanCount) { // top edge
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing; // item bottom
-            } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
-                if (position >= spanCount) {
-                    outRect.top = spacing; // item top
-                }
+
+
+
             }
-        }
-    }
-
-    /**
-     * Converting dp to pixel
-     */
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
 
 
 
     @Override
     public void onBackPressed() {
+        int count = getFragmentManager().getBackStackEntryCount();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if(drawer.isDrawerOpen(GravityCompat.END)) {
+            drawer.closeDrawer(GravityCompat.END);
+
+            //Back pressed event handling for fragments
+        }else if (count == 0) {
             super.onBackPressed();
-        }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.pop_enter, R.animator.pop_exit);
+            HomeFragment homeFragment= new HomeFragment();
+            transaction.replace(R.id.fragment_space, homeFragment );
+            transaction.commit();
+            } else {
+                getFragmentManager().popBackStack();
+            }
+
+
     }
 
     @Override
@@ -184,9 +117,10 @@ public class navigation_drawer extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Fragment fragment;
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
+
 
             DrawerLayout drawer_right = (DrawerLayout) findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle mActionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer_right, 0, 0);
@@ -211,14 +145,27 @@ public class navigation_drawer extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_category) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.pop_enter, R.animator.pop_exit);
+            HomeFragment homeFragment= new HomeFragment();
+            transaction.replace(R.id.fragment_space, homeFragment );
+            transaction.commit();
 
-        } else if (id == R.id.nav_messaage) {
+        } else if (id == R.id.nav_category) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.pop_enter, R.animator.pop_exit);
+            CategoriesFragment categoryFragment= new CategoriesFragment();
+            transaction.replace(R.id.fragment_space, categoryFragment );
+            transaction.commit();
+
+        } else if (id == R.id.nav_message) {
 
         } else if (id == R.id.nav_wishlist) {
 
@@ -226,7 +173,8 @@ public class navigation_drawer extends AppCompatActivity
 
         } else if (id == R.id.nav_my_profile) {
 
-        }else if (id == R.id.nav_post_ad){
+
+        } else if (id == R.id.nav_post_ad) {
 
         }
 

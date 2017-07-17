@@ -23,7 +23,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_navigation_drawer"
         app:menu="@menu/activity_navigation_drawer_drawer"
-        android:background="#f5e7fd"/>
+        />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view_right"

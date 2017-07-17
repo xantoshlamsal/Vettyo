@@ -4,9 +4,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSecondary"
-
-
     >
 
     <LinearLayout
@@ -26,8 +23,8 @@
             android:layout_marginTop="30dp"
             android:text="Enter Details to Log In"
             android:textAlignment="center"
-            android:padding="5dp"
-            android:textColor="@color/textColor_primary"
+            android:padding="10dp"
+            android:textColor="@color/textColor_secondary"
             android:background="@drawable/btnformate"/>
 
         <EditText
@@ -71,7 +68,7 @@
                 android:background="@drawable/btnformate"
                 android:text="Log In"
                 android:layout_margin="10dp"
-                android:textColor="@color/textColor_primary"/>
+                android:textColor="@color/textColor_secondary"/>
 
 
             <TextView
@@ -90,7 +87,7 @@
                 android:background="@drawable/btnformate"
                 android:text="Sign up"
                 android:layout_margin="10dp"
-                android:textColor="@color/textColor_primary"/>
+                android:textColor="@color/textColor_secondary"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

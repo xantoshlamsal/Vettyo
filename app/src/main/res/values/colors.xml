@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4d1d5b</color>
-    <color name="colorPrimaryDark">#4d1d5b</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="loginBackground">#fff</color>
-    <color name="black_overlay">#66000000</color>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#b2b2b2</color>
+    <color name="colorvetto">#f94e4e</color>
+    <color name="card_background_color">#ededed</color>
 
 
-    <color name="new_light1">#a67ebc</color>
-    <color name="light_color1">#eee5e9</color>
-    <color name="light_color2">#7c7c7c</color>
-    <color name="colorSecondary">#2b303a</color>
-    <color name="dark_color3">#a31621</color>
-
-    <color name="textColor_primary">#fff</color>
-    <color name="textColor_secondary">#2b303a</color>
+    <color name="textColor_primary">#000</color>
+    <color name="textColor_secondary">#fff</color>
+    <color name="titletextcolor">#4c4c4c</color>
 
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
